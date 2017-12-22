@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const PORT = process.env.PORT || 9000;
 
 const server = express();
 
 server.use(cors());
 
+server.use( express.static( path.resolve(__dirname, 'client', 'dist') ));
 
 server.get('/api/get-stuff', (req, res) => {
     const stuff = {
@@ -27,7 +29,7 @@ server.get('/api/better-stuff', (req, res) => {
 
 
 server.get('*', (req, res) => {
-    res.send('<h1>Ya made it here!</h1>');
+    res.send(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 
