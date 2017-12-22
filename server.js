@@ -5,7 +5,7 @@ const server = express();
 
 
 server.get('*', (req, res) => {
-    res.send('<h1>Ya made it asdfasdfasdf here!</h1>');
+    res.send('<h1>Ya made it here!</h1>');
 });
 
 
